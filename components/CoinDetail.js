@@ -10,6 +10,7 @@ class CoinDetail extends Component {
     render() {
         let date = new Date();
         let now = date.toLocaleString();
+        console.log(this.props.time);
 
         return (
             <View style={styles.container}>
@@ -29,7 +30,7 @@ class CoinDetail extends Component {
                         <Text style={[styles.price]}>{(this.props.price || 0)}</Text>                        
                     </View>
                 </View>
-                <Text style={[styles.text, { flex: 1 }]}>{'Updated' + (Date(this.props.time) || now)}</Text>
+                <Text style={[styles.text, { flex: 1 }]}>{'Updated ' + (Date(this.props.time) || now)}</Text>
             </View>
         );
     }

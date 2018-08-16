@@ -112,7 +112,7 @@ class CoinView extends Component {
         // )
         // ES6 문법(map)
         // let detailCells = sampleData.map( (data, index) => {
-        //     const { rank, name, price_usd, market_cap_usd, time } = data;  // Destructuring
+        //     const { rank, name, price_usd, market_cap_usd, last_updated } = data;  // Destructuring
         //     return (
         //         <CoinDetail 
         //             key={index}
@@ -135,6 +135,7 @@ class CoinView extends Component {
                     price={data.price_usd}
                     volume={data.market_cap_usd}
                     iconUri={getCoinIconUri(data.name)}
+                    time={data.last_updated}
                 />
             )
             detailCells.push(coinDetail);
