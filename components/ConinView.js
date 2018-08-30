@@ -59,7 +59,7 @@ class CoinView extends Component {
 
         setInterval(() => {
             this._getCoinDatas(30);
-            console.log('toggled');
+            //console.log('toggled');
         }, 10000);
     }
 
@@ -72,16 +72,13 @@ class CoinView extends Component {
         fetch(
             `https://api.coinmarketcap.com/v1/ticker/?limit=${limit}`
         )
-        .then(response => {
-            console.log("test");
-            response.json();            
-        })
+        .then(response => response.json() )
         .then(data => {      
-            console.log(data);
+            //console.log(data);
             let date = new Date();
             let now = date.toLocaleString();
 
-            console.log(this.props.refreshDate);
+            //console.log(this.props.refreshDate);
             if (this.props.refreshDate != null) {
                 this.props.refreshDate(now);        // 부모 component의 state 값에 보낼 수 있다 
             }
@@ -124,9 +121,10 @@ class CoinView extends Component {
         //         />
         //     );
         // })
+        //console.log(this.state.coinDatas);
         let detailCells = [];
-        for( var i = 0; i < sampleData.length; i++) {
-            let data = sampleData[i];
+        for( var i = 0; i < this.state.coinDatas.length; i++) {
+            let data = this.state.coinDatas[i];
             let coinDetail = (
                 <CoinDetail 
                     key={data.id}        // 키값으로 어떤 컴포넌트가 변경이 되었는지 알기 위해 업데이트할 키를 알아야 한다 

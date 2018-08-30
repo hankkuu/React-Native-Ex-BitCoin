@@ -12,7 +12,7 @@ export default class App extends React.Component {
   }
 
   _setRefreshDate(date) {
-    console.log('Updated: '+ date);
+    //console.log('Updated: '+ date);
     this.setState({
       refreshDate: date,
     });
